@@ -23,6 +23,7 @@
     "test": "mocha"
   },
   "dependencies": {
+    "babel-runtime": "^5.8.20",
     "extend": "^3.0.0",
     "gulp-util": "^3.0.6"
   },
