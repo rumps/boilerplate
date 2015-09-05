@@ -33,6 +33,8 @@
     "babel-eslint": "^4.0.5",
     "codecov.io": "^0.1.5",
     "eslint": "^1.0.0",
+    "eslint-config-jupl": "^0.1.6",
+    "eslint-plugin-babel": "^2.1.1",
     "gulp": "^3.9.0",
     "isparta": "^3.0.3",
     "mocha": "^2.2.5",
