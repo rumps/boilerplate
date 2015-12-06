@@ -6,6 +6,7 @@
   "license": "MIT",
   "homepage": "https://github.com/rumps/",
   "main": "./lib",
+  "jsnext:main": "./src",
   "repository": "rumps/",
   "keywords": [
     "gulp",
@@ -14,14 +15,14 @@
   ],
   "scripts": {
     "codecov": "npm run coverage",
-    "postcodecov": "codecov < coverage/coverage.json",
+    "postcodecov": "codecov < coverage/coverage-final.json",
     "precompile": "[ -d lib ] && trash lib || true",
     "compile": "babel src --out-dir lib --source-maps=inline",
-    "coverage": "babel-node node_modules/isparta/bin/isparta cover --report json --report html --report text node_modules/mocha/bin/_mocha -- -R min",
+    "coverage": "nyc --reporter=json --reporter=html --reporter=text node_modules/ava/cli.js",
     "lint": "eslint src test",
     "pub": "npm run test && npm run compile && npm publish",
     "pretest": "npm run lint",
-    "test": "mocha"
+    "test": "ava"
   },
   "dependencies": {
     "babel-runtime": "^5.8.20",
@@ -29,18 +30,18 @@
     "gulp-util": "^3.0.6"
   },
   "devDependencies": {
+    "ava": "^0.7.0",
     "babel": "^5.8.19",
-    "babel-eslint": "^4.0.5",
+    "babel-eslint": "^4.1.6",
     "codecov.io": "^0.1.5",
     "eslint": "^1.0.0",
-    "eslint-config-jupl": "^0.2.0",
-    "eslint-plugin-babel": "^2.1.1",
+    "eslint-config-jupl": "^0.2.1",
+    "eslint-plugin-babel": "^3.0.0",
     "gulp": "^3.9.0",
-    "isparta": "^3.0.3",
-    "mocha": "^2.2.5",
+    "nyc": "^4.0.1",
     "should": "^7.0.2",
     "should-sinon": "0.0.3",
     "sinon": "^1.15.4",
-    "trash": "^2.0.0"
+    "trash": "^3.4.0"
   }
 }
